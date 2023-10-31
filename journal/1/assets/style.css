@@ -288,6 +288,13 @@ p:not(:first-of-type) {
   font-size: 1.6em
 }
 
+h3.small {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 1em 0 0 1em;
+  line-height: 1.3em;
+}
+
 @media screen and (max-width: 768px) {
   .bokuprojectojisan h2 {
     font-size: 1.2em;
