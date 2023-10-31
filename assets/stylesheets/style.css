@@ -15,11 +15,24 @@ body {
   letter-spacing: 0.03em;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 2em 0 0 0;
+  word-break: keep-all;
+  line-height: 1.2em;
+  letter-spacing: 0.02em;
+}
+
 header {
-  position: relative;
-  margin: 3em 3em 1.5em 3em;
-  padding: 0 0 3em 0;
-  text-align: center;
+  margin: 0;
+}
+
+header h1 {
+  font-family: serif;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
 main {
@@ -28,8 +41,11 @@ main {
   margin: auto auto 5em auto;
 }
 
+article {
+  margin: 2em 0;
+}
+
 p {
-  color: #666;
   line-height: 1.66em;
   letter-spacing: 0.03em;
 }
