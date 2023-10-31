@@ -26,10 +26,13 @@ h4 {
 }
 
 header {
-  position: relative;
-  margin: 3em 3em 1.5em 3em;
-  padding: 0 0 3em 0;
-  text-align: center;
+  margin: 0;
+}
+
+header h1 {
+  font-family: serif;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
 main {
