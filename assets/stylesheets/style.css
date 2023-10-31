@@ -1,18 +1,25 @@
 html {
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-family: sans-serif;
-  font-size: 18px;
-  line-height: 32px;
-  letter-spacing: 0.05em;
 }
 
 body {
   margin: 0;
   -webkit-text-size-adjust: 100%;
-  font-feature-settings: "palt";
   color: #333;
-  background-color: #eee;
+  background-color: #f8f8f8;
+  font-family: sans-serif;
+  font-feature-settings: "palt";
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.03em;
+}
+
+header {
+  position: relative;
+  margin: 3em 3em 1.5em 3em;
+  padding: 0 0 3em 0;
+  text-align: center;
 }
 
 main {
@@ -35,9 +42,8 @@ ul p {
   margin-left: 2em;
 }
 
-.unibalogo {
-  display: block;
-  width: 66%;
-  max-width: 146px;
-  margin: 2em auto 3em auto;
+a {
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: white;
 }
