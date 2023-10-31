@@ -289,7 +289,7 @@ p:not(:first-of-type) {
 }
 
 h3.small {
-  font-size: 1em;
+  font-size: 0.75em;
   font-weight: normal;
   margin: 1em 0 0 1em;
   line-height: 1.3em;
