@@ -306,3 +306,25 @@ h3.small {
   bottom: 1em;
   left: 1em;
 }
+
+footer {
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding-top: 3em;
+  font-size: 0.9em;
+  color: #666;
+  grid-column: 1 / -1;
+}
+
+footer::before {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 8px);
+  content: "✦";
+  font-size: 16px;
+}
+
+footer * {
+  margin: 0 1em;
+}
