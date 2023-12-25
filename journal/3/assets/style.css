@@ -185,7 +185,9 @@ p:not(:first-of-type) {
 }
 
 .credit {
+  display: inline-block;
   font-size: 0.75em;
+  line-height: 1.2em;
   color: #666;
 }
 
@@ -327,4 +329,22 @@ footer::before {
 
 footer * {
   margin: 0 1em;
+}
+
+.indent {
+  margin: 0.5em 0;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+}
+
+.indent h4 {
+  padding: 1em 0;
+}
+
+.note {
+  display: inline-block;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  margin-top: 0.5em;
+  color: #666;
 }
