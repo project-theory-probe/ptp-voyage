@@ -389,13 +389,13 @@ footer * {
 }
 
 .indent {
-  margin: 0.5em 0;
-  padding-left: 1em;
-  padding-bottom: 0.5em;
+  margin: 1em 0 0.5em 0;
+  padding: 0 0 0.5em 1.2em;
+  border-left: #bbb solid 1px;
 }
 
 .indent h4 {
-  padding: 1em 0;
+  padding: 1em 0 1.2em 0;
 }
 
 .note {
