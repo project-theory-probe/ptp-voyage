@@ -148,6 +148,10 @@ p:not(:first-of-type) {
   grid-column: span 8;
 }
 
+.mini-item {
+  grid-column: span 8;
+}
+
 .half-item {
   grid-column: span 7;
 }
@@ -157,14 +161,15 @@ p:not(:first-of-type) {
 }
 
 .small-item {
-  grid-column: span 4;
+  grid-column: span 5;
 }
 
 .micro-item {
-  grid-column: span 3;
+  grid-column: span 4;
 }
 
 .scraper-item {
+  grid-column: span 4;
   grid-row: span 10;
 }
 
@@ -226,6 +231,10 @@ p:not(:first-of-type) {
     grid-column: span 6;
   }
 
+  .mini-item {
+    grid-column: span 6;
+  }
+
   .half-item {
     grid-column: span 3;
   }
@@ -239,7 +248,7 @@ p:not(:first-of-type) {
   }
 
   .micro-item {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
   section {
@@ -247,7 +256,8 @@ p:not(:first-of-type) {
   }
 
   .scraper-item {
-    grid-row: span 2;
+    grid-column: span 3;
+    grid-row: span 1;
   }
 
   .tower-item {
@@ -277,6 +287,10 @@ p:not(:first-of-type) {
     grid-column: span 2;
   }
 
+  .mini-item {
+    grid-column: span 1;
+  }
+
   .half-item {
     grid-column: span 2;
   }
@@ -294,12 +308,12 @@ p:not(:first-of-type) {
   }
 
   section {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   .scraper-item {
-    grid-row: span 2;
     grid-column: span 2;
+    grid-row: span 2;
   }
 
   .tower-item {
