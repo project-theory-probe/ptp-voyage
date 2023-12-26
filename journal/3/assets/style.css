@@ -145,27 +145,44 @@ p:not(:first-of-type) {
 }
 
 .middle-item {
-  grid-column: span 6;
+  grid-column: span 8;
+}
+
+.half-item {
+  grid-column: span 7;
+}
+
+.half-small-item {
+  grid-column: span 5;
 }
 
 .small-item {
-  grid-column: span 6;
+  grid-column: span 4;
 }
 
 .micro-item {
   grid-column: span 3;
 }
 
+.scraper-item {
+  grid-row: span 10;
+}
+
 .tower-item {
-  grid-row: span 6;
+  grid-row: span 5;
 }
 
 .vertical-item {
-  grid-row: span 2;
+  grid-row: span 3;
 }
 
 .multicolumn-small {
   column-width: 15em;
+  column-gap: 0.8em;
+}
+
+.multicolumn-middle {
+  column-width: 18em;
   column-gap: 0.8em;
 }
 
@@ -206,11 +223,19 @@ p:not(:first-of-type) {
   }
 
   .middle-item {
-    grid-column: span 4;
+    grid-column: span 6;
+  }
+
+  .half-item {
+    grid-column: span 3;
+  }
+
+  .half-small-item {
+    grid-column: span 3;
   }
 
   .small-item {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
   .micro-item {
@@ -218,7 +243,11 @@ p:not(:first-of-type) {
   }
 
   section {
-    grid-column: span 4;
+    grid-column: span 3;
+  }
+
+  .scraper-item {
+    grid-row: span 2;
   }
 
   .tower-item {
@@ -226,11 +255,11 @@ p:not(:first-of-type) {
   }
 
   .vertical-item {
-    grid-row: span 3;
+    grid-row: span 2;
   }
 
   .column-right {
-    grid-column: 5 / 7;
+    grid-column: 4 / 7;
   }
 }
 
@@ -248,6 +277,14 @@ p:not(:first-of-type) {
     grid-column: span 2;
   }
 
+  .half-item {
+    grid-column: span 2;
+  }
+
+  .half-small-item {
+    grid-column: span 2;
+  }
+
   .small-item {
     grid-column: span 1;
   }
@@ -257,19 +294,24 @@ p:not(:first-of-type) {
   }
 
   section {
-    grid-column: span 1;
+    grid-column: span 2;
+  }
+
+  .scraper-item {
+    grid-row: span 2;
+    grid-column: span 2;
   }
 
   .tower-item {
-    grid-row: span 4;
+    grid-row: span 3;
   }
 
   .vertical-item {
-    grid-row: span 1;
+    grid-row: span 2;
   }
 
   .column-right {
-    grid-column: auto;
+    grid-column: 2 / 3;
   }
 }
 
@@ -315,6 +357,7 @@ footer {
   position: relative;
   padding-top: 3em;
   font-size: 0.9em;
+  text-align: center;
   color: #666;
   grid-column: 1 / -1;
 }
