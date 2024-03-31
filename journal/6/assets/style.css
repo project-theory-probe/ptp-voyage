@@ -142,7 +142,6 @@ p:not(:first-of-type) {
 
 .column-right {
   grid-column: 10 / 13;
-  grid-row: span 4;
 }
 
 .column-bottom {
@@ -155,7 +154,6 @@ p:not(:first-of-type) {
 
 .large-item {
   grid-column: span 9;
-  grid-row: span 3;
 }
 
 .middle-item {
