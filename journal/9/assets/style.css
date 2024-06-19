@@ -1,0 +1,454 @@
+html {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  background-color: #f8f8f8;
+  font-family: sans-serif;
+  font-feature-settings: "palt";
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.03em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  word-break: keep-all;
+  line-height: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+p {
+  margin: 0;
+  line-break: strict;
+  scroll-margin-top: 2em;
+}
+
+p.right {
+  text-align: right;
+}
+
+img {
+  display: block;
+  margin: 0;
+  width: 100%;
+  column-span: all;
+}
+
+p img {
+  display: inline;
+  margin: 0;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+sup {
+  vertical-align: top;
+  font-size: 0.75em;
+}
+
+header {
+  position: relative;
+  margin: 3em 3em 1.5em 3em;
+  padding: 0 0 3em 0;
+  text-align: center;
+}
+
+header::after {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 8px);
+  content: "✦";
+  font-size: 16px;
+}
+
+header h1 {
+  font-family: serif;
+  font-weight: 800;
+  margin-bottom: 0.5em;
+  letter-spacing: 0;
+}
+
+main {
+  display: grid;
+  margin: 0 auto 3em auto;
+  padding: 0 3em;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1em;
+  max-width: 1024px;
+  grid-auto-flow: dense;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+  grid-column: span 3;
+  scroll-margin-top: 2em;
+}
+
+section>h2:first-child,
+section>h3:first-child,
+section>h4:first-child {
+  padding: 0;
+}
+
+article {
+  margin: 1.6em 0;
+}
+
+p:not(:first-of-type) {
+  margin: 1em 0 0 0;
+}
+
+.row-top {
+  grid-row: 1;
+}
+
+.row-bottom {
+  grid-row: -1;
+}
+
+.column-main {
+  grid-column: 1 / 10;
+}
+
+.column-right {
+  grid-column: 10 / 13;
+}
+
+.column-bottom {
+  grid-column: 1 / 13;
+}
+
+.full-item {
+  grid-column: span 12;
+}
+
+.large-item {
+  grid-column: span 9;
+}
+
+.middle-item {
+  grid-column: span 8;
+}
+
+.mini-item {
+  grid-column: span 8;
+}
+
+.half-item {
+  grid-column: span 7;
+}
+
+.half-small-item {
+  grid-column: span 5;
+}
+
+.half-small-item.tower-item {
+  grid-column: span 6;
+}
+
+.small-item {
+  grid-column: span 5;
+}
+
+.micro-item {
+  grid-column: span 4;
+}
+
+.nano-item {
+  grid-column: span 3;
+}
+
+.scraper-item {
+  grid-column: span 4;
+  grid-row: span 10;
+}
+
+.tower-item {
+  grid-row: span 3;
+}
+
+.vertical-item {
+  grid-row: span 2;
+}
+
+.multicolumn-small {
+  column-width: 15em;
+  column-gap: 0.8em;
+}
+
+.multicolumn-middle {
+  column-width: 18em;
+  column-gap: 0.8em;
+}
+
+.multicolumn-large {
+  column-width: 20em;
+  column-gap: 0.8em;
+}
+
+.multicolumn-four {
+  column-count: 4;
+  column-gap: 0.8em;
+}
+
+.author {
+  display: block;
+  margin: 1em 0;
+}
+
+.credit {
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1.2em;
+  color: #666;
+}
+
+@media screen and (max-width: 960px) {
+  header {
+    margin-top: 2em;
+  }
+
+  main {
+    padding: 0 2em;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .full-item {
+    grid-column: span 6;
+  }
+
+  .large-item {
+    grid-column: span 6;
+  }
+
+  .middle-item {
+    grid-column: span 4;
+  }
+
+  .mini-item {
+    grid-column: span 6;
+  }
+
+  .half-item {
+    grid-column: span 4;
+  }
+
+  .half-small-item {
+    grid-column: span 4;
+    grid-row: span 3;
+  }
+
+  .small-item {
+    grid-column: span 2;
+  }
+
+  .micro-item {
+    grid-column: span 2;
+  }
+
+  .nano-item {
+    grid-column: span 2;
+  }
+
+  section {
+    grid-column: span 3;
+  }
+
+  .scraper-item {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+
+  .tower-item {
+    grid-row: span 1;
+  }
+
+  .vertical-item {
+    grid-row: span 1;
+  }
+
+  .column-right {
+    grid-column: 1 / 3;
+    grid-row: span 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0 1em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .full-item {
+    grid-column: span 2;
+  }
+
+  .large-item {
+    grid-column: span 2;
+  }
+
+  .middle-item {
+    grid-column: span 2;
+  }
+
+  .mini-item {
+    grid-column: span 1;
+  }
+
+  .half-item {
+    grid-column: span 2;
+  }
+
+  .half-small-item {
+    grid-column: span 2;
+  }
+
+  .half-item.vertical-item {
+    grid-column: span 2;
+  }
+
+  .half-small-item.vertical-item {
+    grid-column: span 2;
+  }
+
+  .small-item {
+    grid-column: span 1;
+  }
+
+  .micro-item {
+    grid-column: span 1;
+  }
+
+  .nano-item {
+    grid-column: span 1;
+  }
+
+  section {
+    grid-column: span 1;
+  }
+
+  .scraper-item {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .tower-item {
+    grid-row: span 2;
+  }
+
+  .vertical-item {
+    grid-row: span 2;
+  }
+
+  .column-right {
+    grid-column: 2 / 3;
+    grid-row: span 3;
+  }
+}
+
+.bokuprojectojisan {
+  position: relative;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  background-image: url("../assets/bokupurojekutoojisan.png");
+  background-size: cover;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.bokuprojectojisan h2 {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 1.6em
+}
+
+h3.small {
+  font-size: 0.75em;
+  font-weight: normal;
+  margin: 1em 0 0 1em;
+  line-height: 1.3em;
+}
+
+@media screen and (max-width: 768px) {
+  .bokuprojectojisan h2 {
+    font-size: 1.2em;
+  }
+}
+
+.bokuprojectojisan span {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+
+footer {
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding-top: 3em;
+  font-size: 0.9em;
+  text-align: center;
+  color: #666;
+  grid-column: 1 / -1;
+}
+
+footer::before {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 8px);
+  content: "✦";
+  font-size: 16px;
+}
+
+footer * {
+  margin: 0 1em;
+}
+
+.indent {
+  margin: 1em 0 0.5em 0;
+  padding: 0 0 0.5em 1.2em;
+  border-left: #bbb solid 1px;
+}
+
+.indent h4 {
+  padding: 1em 0 1.2em 0;
+}
+
+.note {
+  display: inline-block;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  margin-top: 0.5em;
+  color: #666;
+}
