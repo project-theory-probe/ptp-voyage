@@ -16,6 +16,11 @@ body {
   letter-spacing: 0.03em;
 }
 
+*:lang(en) {
+  line-height: 23px;
+  letter-spacing: 0.01em;
+}
+
 h1,
 h2,
 h3,
@@ -457,4 +462,15 @@ footer * {
   border: 2px black solid;
   width: 500px;
   height: 500px;
+}
+
+.adframe {
+  border: 2px black solid;
+  padding: 1em;
+  column-width: 15em;
+  column-gap: 1.66em;
+}
+
+.adframe h4 {
+  break-before: column;
 }
