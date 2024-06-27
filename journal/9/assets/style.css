@@ -458,3 +458,14 @@ footer * {
   width: 500px;
   height: 500px;
 }
+
+.adframe {
+  border: 2px black solid;
+  padding: 1em;
+  column-width: 15em;
+  column-gap: 1.66em;
+}
+
+.adframe h4 {
+  break-before: column;
+}
