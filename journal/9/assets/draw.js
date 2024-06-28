@@ -36,6 +36,7 @@ document.onreadystatechange = () => {
     }
 
     userspace.ontouchstart = ( event ) => {
+      event.preventDefault()
       cachearray.push( [event.pageX, event.pageY] )
       draw()
     }
