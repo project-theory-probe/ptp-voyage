@@ -459,9 +459,20 @@ footer * {
 }
 
 #sketchpad {
-  border: 2px black solid;
-  width: 500px;
-  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#touchsensor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: -1;
 }
 
 .adframe {
@@ -473,4 +484,11 @@ footer * {
 
 .adframe h4 {
   break-before: column;
+}
+
+.readersspace {
+  text-align: center;
+  padding: 2em;
+  min-height: 30em;
+  background-color: white;
 }
