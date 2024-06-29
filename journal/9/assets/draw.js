@@ -1,17 +1,17 @@
 const main = document.querySelector( 'main' )
-const userspace = document.querySelector( '#userspace' )
-const touchsensor = document.querySelector( '#touchsensor' )
 const canvas = document.querySelector( '#sketchpad' )
 const context = canvas.getContext( '2d' )
+const tools = document.querySelector( '#tools' )
 const eraseBtn = document.querySelector( '#eraseBtn' )
 const drawBtn = document.querySelector( '#drawBtn' )
-const cachearray = []
+const endBtn = document.querySelector( '#endBtn' )
+const userspace = document.querySelector( '#userspace' )
+const strokeArray = []
 let current = 0
 let timer
-let delaytimer
 let drawingflag = false
-let scroll
 let drawmode = true
+let toolsMode = false
 
 document.onreadystatechange = () => {
   if ( document.readyState === "complete" ) {
@@ -19,125 +19,150 @@ document.onreadystatechange = () => {
 
     drawBtn.onclick = () => {
       drawmode = true
+      drawBtn.classList.add( 'active' )
+      eraseBtn.classList.remove( 'active' )
     }
 
     eraseBtn.onclick = () => {
       drawmode = false
+      drawBtn.classList.remove( 'active' )
+      eraseBtn.classList.add( 'active' )
+    }
+
+    endBtn.onclick = () => {
+      disableTools()
     }
 
     document.ontouchstart = ( event ) => {
-      scroll = window.scrollY
-      cachearray.push( [event.pageX, event.pageY] )
-      clearTimeout( timer )
-      timer = setTimeout( () => {
+      if ( toolsMode ) {
+        startStroke()
+        strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
         draw()
-      }, 400 )
-      console.log( 'touchstart', drawingflag )
-    }
-
-    userspace.ontouchstart = ( event ) => {
-      event.preventDefault()
-      cachearray.push( [event.pageX, event.pageY] )
-      draw()
-    }
-
-    main.ontouchmove = ( event ) => {
-      if ( cachearray.length ) {
-        cachearray.push( [event.pageX, event.pageY] )
-      }
-
-      if ( window.getSelection().type == 'Range' ) {
-        reset()
-      }
-
-      if ( window.scrollY != scroll ) {
-        reset()
-      }
-
-      if ( drawingflag ) {
-        console.log( 'preventdefault' )
-        event.preventDefault()
-        draw()
-        if ( !delaytimer ) {
-          delaytimer = setTimeout( () => {
-            reset()
-          }, 500 )
-        }
-      }
-    }
-
-    document.ontouchend = () => {
-      cachearray.length = 0
-      current = 0
-      console.log( 'touchend', drawingflag )
-      if ( !delaytimer ) {
-        delaytimer = setTimeout( () => {
-          reset()
+      } else {
+        timer = setTimeout( () => {
+          if ( window.getSelection().toString().length == 0 ) {
+            enableTools()
+            startStroke()
+          }
+          timer = null
         }, 500 )
       }
     }
 
+    userspace.ontouchstart = ( event ) => {
+      if ( toolsMode ) {
+        startStroke()
+        strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
+        draw()
+      } else {
+        enableTools()
+        startStroke()
+      }
+    }
+
+    const handleTouchMove = ( event ) => {
+      console.log( 'touchmove', event )
+      if ( toolsMode && drawingflag ) {
+        event.preventDefault()
+        strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
+        draw()
+      }
+    }
+
+    document.addEventListener( 'touchmove', handleTouchMove, { passive: false } )
+
+    document.ontouchend = () => {
+      if ( toolsMode ) {
+        endStroke()
+      } else {
+        cancelTimer()
+      }
+    }
+
     document.onmousedown = ( event ) => {
-      if ( !cachearray.length ) {
-        cachearray.push( [event.pageX, event.pageY] )
-        clearTimeout( timer )
+      if ( toolsMode ) {
+        startStroke()
+        strokeArray.push( [event.pageX, event.pageY] )
+        draw()
+      } else {
         timer = setTimeout( () => {
-          draw()
-        }, 400 )
+          if ( !window.getSelection().toString().length ) {
+            enableTools()
+            startStroke()
+          }
+          timer = null
+        }, 500 )
       }
     }
 
     userspace.onmousedown = ( event ) => {
-      cachearray.push( [event.pageX, event.pageY] )
-      draw()
+      if ( toolsMode ) {
+        startStroke()
+        strokeArray.push( [event.pageX, event.pageY] )
+        draw()
+      } else {
+        enableTools()
+        startStroke()
+      }
     }
 
     document.onmousemove = ( event ) => {
-      if ( cachearray.length ) {
-        cachearray.push( [event.pageX, event.pageY] )
-      }
-
-      if ( window.getSelection().toString().length ) {
-        reset()
-      }
-
-      if ( drawingflag ) {
+      if ( toolsMode && drawingflag ) {
+        strokeArray.push( [event.pageX, event.pageY] )
         draw()
       }
     }
 
     document.ondrag = () => {
-      reset()
+      cancelTimer()
+      endStroke()
+    }
+
+    document.onscroll = () => {
+      cancelTimer()
     }
 
     document.onmouseup = () => {
-      cachearray.length = 0
-      current = 0
-      if ( !delaytimer ) {
-        delaytimer = setTimeout( () => {
-          reset()
-        }, 500 )
+      if ( toolsMode ) {
+        endStroke()
+      } else {
+        cancelTimer()
       }
     }
 
-    const reset = () => {
-      drawingflag = false
-      cachearray.length = 0
+    const enableTools = () => {
+      toolsMode = true
+      tools.classList.add( 'active' )
+      canvas.classList.add( 'active' )
+      main.classList.add( 'inactive' )
+    }
+
+    const disableTools = () => {
+      toolsMode = false
+      tools.classList.remove( 'active' )
+      canvas.classList.remove( 'active' )
+      main.classList.remove( 'inactive' )
+    }
+
+    const startStroke = () => {
+      drawingflag = true
+    }
+
+    const endStroke = () => {
+      strokeArray.length = 0
       current = 0
-      main.style.userSelect = 'auto'
-      clearTimeout( timer )
-      clearTimeout( delaytimer )
-      timer = null
-      delaytimer = null
-      console.log( 'reset' )
+      drawingflag = false
+    }
+
+    const cancelTimer = () => {
+      if ( timer ) {
+        clearTimeout( timer )
+        timer = null
+      }
     }
 
     const draw = () => {
-      drawingflag = true
-      clearTimeout( delaytimer )
-      delaytimer = null
-      main.style.userSelect = 'none'
-      for ( let i = current; i < cachearray.length - 1; i++ ) {
+      for ( let i = current; i < strokeArray.length - 1; i++ ) {
         context.beginPath()
         if ( drawmode ) {
           context.globalCompositeOperation = 'source-over'
@@ -147,8 +172,8 @@ document.onreadystatechange = () => {
           context.globalCompositeOperation = 'destination-out'
           context.lineWidth = 40
         }
-        context.moveTo( cachearray[i][0], cachearray[i][1] )
-        context.lineTo( cachearray[i + 1][0], cachearray[i + 1][1] )
+        context.moveTo( strokeArray[i][0], strokeArray[i][1] )
+        context.lineTo( strokeArray[i + 1][0], strokeArray[i + 1][1] )
         context.stroke()
         current = i
       }
@@ -164,8 +189,5 @@ const setSize = () => {
   if ( canvas.height != document.documentElement.offsetHeight ) {
     canvas.width = document.documentElement.offsetWidth
     canvas.height = document.documentElement.offsetHeight
-
-    touchsensor.style.width = document.documentElement.offsetWidth + 'px'
-    touchsensor.style.height = document.documentElement.offsetHeight + 'px'
   }
 } 
