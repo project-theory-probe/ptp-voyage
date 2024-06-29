@@ -1,12 +1,16 @@
 const main = document.querySelector( 'main' )
+const footer = document.querySelector( 'footer' )
 const canvas = document.querySelector( '#sketchpad' )
 const context = canvas.getContext( '2d' )
+const container = document.querySelector( '#sketchpadcontainer' )
 const tools = document.querySelector( '#tools' )
 const eraseBtn = document.querySelector( '#eraseBtn' )
 const drawBtn = document.querySelector( '#drawBtn' )
 const endBtn = document.querySelector( '#endBtn' )
 const userspace = document.querySelector( '#userspace' )
 const strokeArray = []
+const canvasStore = document.createElement( 'img' )
+const canvasStoreKey = 'issue9canvas'
 let current = 0
 let timer
 let drawingflag = false
@@ -14,8 +18,32 @@ let drawmode = true
 let toolsMode = false
 
 document.onreadystatechange = () => {
+  const loadCanvas = () => {
+    if ( localStorage.getItem( canvasStoreKey ) !== null ) {
+      canvasStore.src = localStorage.getItem( canvasStoreKey )
+      canvasStore.onload = () => {
+        context.drawImage( canvasStore, 0, 0 )
+      }
+    }
+  }
+
+  const setCanvasSize = () => {
+    const targetWidth = document.documentElement.offsetWidth
+    const targetHeight = footer.offsetTop + footer.offsetHeight
+
+    container.style.height = targetHeight + 'px'
+    container.style.width = targetWidth + 'px'
+
+    if ( canvas.width < targetWidth || canvas.height < targetHeight ) {
+      canvas.height = canvas.height > targetHeight ? canvas.height : targetHeight
+      canvas.width = canvas.width > targetWidth ? canvas.width : targetWidth
+      loadCanvas()
+    }
+  }
+
   if ( document.readyState === "complete" ) {
-    setSize()
+
+    setCanvasSize()
 
     drawBtn.onclick = () => {
       drawmode = true
@@ -152,6 +180,8 @@ document.onreadystatechange = () => {
       strokeArray.length = 0
       current = 0
       drawingflag = false
+
+      localStorage.setItem( canvasStoreKey, canvas.toDataURL() )
     }
 
     const cancelTimer = () => {
@@ -178,16 +208,9 @@ document.onreadystatechange = () => {
         current = i
       }
     }
+
+    window.onresize = () => {
+      setCanvasSize()
+    }
   }
 }
-
-window.onresize = () => {
-  setSize()
-}
-
-const setSize = () => {
-  if ( canvas.height != document.documentElement.offsetHeight ) {
-    canvas.width = document.documentElement.offsetWidth
-    canvas.height = document.documentElement.offsetHeight
-  }
-} 
