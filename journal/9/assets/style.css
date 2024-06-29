@@ -544,8 +544,8 @@ footer * {
   border: 1px blue solid;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: width 1000ms, height 1000ms, opacity 1000ms;
   transition-timing-function: ease-in-out;
+  transition: width 200ms, height 200ms, opacity 200ms;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
@@ -556,11 +556,11 @@ footer * {
   width: 100px;
   height: 100px;
   opacity: 1;
+  transition: width 1000ms, height 1000ms, opacity 1000ms;
 }
 
 .bubble.inactive {
-  opacity: 0;
   width: 200px;
   height: 200px;
-  transition: width 200ms, height 200ms, opacity 200ms;
+  opacity: 0;
 }
