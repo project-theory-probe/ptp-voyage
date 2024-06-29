@@ -11,6 +11,7 @@ const userspace = document.querySelector( '#userspace' )
 const strokeArray = []
 const canvasStore = document.createElement( 'img' )
 const canvasStoreKey = 'issue9canvas'
+const bubble = document.createElement( 'div' )
 let current = 0
 let timer
 let drawingflag = false
@@ -41,6 +42,9 @@ document.onreadystatechange = () => {
     }
   }
 
+  bubble.classList.add( 'bubble' )
+  main.appendChild( bubble )
+
   if ( document.readyState === "complete" ) {
 
     setCanvasSize()
@@ -67,13 +71,14 @@ document.onreadystatechange = () => {
         strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
         draw()
       } else {
+        bubble.classList.add( 'large' )
         timer = setTimeout( () => {
           if ( window.getSelection().toString().length == 0 ) {
             enableTools()
             startStroke()
           }
           timer = null
-        }, 500 )
+        }, 1000 )
       }
     }
 
@@ -95,6 +100,15 @@ document.onreadystatechange = () => {
         strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
         draw()
       }
+
+      if ( !toolsMode ) {
+        bubble.style.top = event.pageY + 'px'
+        bubble.style.left = event.pageX + 'px'
+      }
+
+      if ( window.getSelection().toString().length > 0 ) {
+        cancelTimer()
+      }
     }
 
     document.addEventListener( 'touchmove', handleTouchMove, { passive: false } )
@@ -113,13 +127,14 @@ document.onreadystatechange = () => {
         strokeArray.push( [event.pageX, event.pageY] )
         draw()
       } else {
+        bubble.classList.add( 'large' )
         timer = setTimeout( () => {
           if ( !window.getSelection().toString().length ) {
             enableTools()
             startStroke()
           }
           timer = null
-        }, 500 )
+        }, 1000 )
       }
     }
 
@@ -138,6 +153,15 @@ document.onreadystatechange = () => {
       if ( toolsMode && drawingflag ) {
         strokeArray.push( [event.pageX, event.pageY] )
         draw()
+      }
+
+      if ( !toolsMode ) {
+        bubble.style.top = event.pageY + 'px'
+        bubble.style.left = event.pageX + 'px'
+      }
+
+      if ( window.getSelection().toString().length > 0 ) {
+        cancelTimer()
       }
     }
 
@@ -163,6 +187,8 @@ document.onreadystatechange = () => {
       tools.classList.add( 'active' )
       canvas.classList.add( 'active' )
       main.classList.add( 'inactive' )
+      bubble.classList.add( 'inactive' )
+      bubble.classList.remove( 'large' )
     }
 
     const disableTools = () => {
@@ -170,6 +196,7 @@ document.onreadystatechange = () => {
       tools.classList.remove( 'active' )
       canvas.classList.remove( 'active' )
       main.classList.remove( 'inactive' )
+      bubble.classList.remove( 'inactive' )
     }
 
     const startStroke = () => {
@@ -189,6 +216,7 @@ document.onreadystatechange = () => {
         clearTimeout( timer )
         timer = null
       }
+      bubble.classList.remove( 'large' )
     }
 
     const draw = () => {
