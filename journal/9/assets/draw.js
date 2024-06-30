@@ -190,6 +190,7 @@ document.onreadystatechange = () => {
 
     const enableTools = () => {
       toolsMode = true
+      switchToDraw()
       tools.classList.add( 'active' )
       canvas.classList.add( 'active' )
       main.classList.add( 'inactive' )
