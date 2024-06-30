@@ -485,8 +485,8 @@ footer * {
   column-gap: 1.66em;
 }
 
-.adframe h4 {
-  break-before: column;
+.adframe li {
+  break-before: avoid-column;
 }
 
 .readersspace {
