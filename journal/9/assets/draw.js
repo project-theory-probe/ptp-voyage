@@ -65,7 +65,8 @@ document.onreadystatechange = () => {
       switchToDraw()
     }
 
-    drawBtn.ontouchstart = () => {
+    drawBtn.ontouchstart = ( event ) => {
+      event.preventDefault()
       switchToDraw()
     }
 
@@ -73,7 +74,8 @@ document.onreadystatechange = () => {
       switchToEraser()
     }
 
-    eraseBtn.ontouchstart = () => {
+    eraseBtn.ontouchstart = ( event ) => {
+      event.preventDefault()
       switchToEraser()
     }
 
@@ -81,7 +83,8 @@ document.onreadystatechange = () => {
       disableTools()
     }
 
-    endBtn.ontouchstart = () => {
+    endBtn.ontouchstart = ( event ) => {
+      event.preventDefault()
       disableTools()
     }
 
@@ -89,16 +92,32 @@ document.onreadystatechange = () => {
       enableTools()
     }
 
-    startBtn.ontouchstart = () => {
+    startBtn.ontouchstart = ( event ) => {
+      event.preventDefault()
       enableTools()
     }
 
+    const updateBubblePos = ( event ) => {
+      if ( event.pageY ) {
+        bubble.style.top = event.pageY + 'px'
+        bubble.style.left = event.pageX + 'px'
+      } else {
+        bubble.style.top = event.changedTouches[0].pageY + 'px'
+        bubble.style.left = event.changedTouches[0].pageX + 'px'
+      }
+    }
+
     document.ontouchstart = ( event ) => {
+      if ( event.changedTouches.length > 1 ) {
+        return
+      }
+
       if ( toolsMode ) {
         startStroke()
         strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
         draw()
       } else {
+        updateBubblePos( event )
         bubble.classList.add( 'large' )
         timer = setTimeout( () => {
           if ( window.getSelection().toString().length == 0 ) {
@@ -111,7 +130,11 @@ document.onreadystatechange = () => {
     }
 
     const handleTouchMove = ( event ) => {
-      console.log( 'touchmove', event )
+      if ( event.changedTouches.length > 1 ) {
+        cancelTimer()
+        return
+      }
+
       if ( toolsMode && drawingflag ) {
         event.preventDefault()
         strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
@@ -119,8 +142,7 @@ document.onreadystatechange = () => {
       }
 
       if ( !toolsMode ) {
-        bubble.style.top = event.pageY + 'px'
-        bubble.style.left = event.pageX + 'px'
+        updateBubblePos( event )
       }
 
       if ( window.getSelection().toString().length > 0 ) {
@@ -144,6 +166,7 @@ document.onreadystatechange = () => {
         strokeArray.push( [event.pageX, event.pageY] )
         draw()
       } else {
+        updateBubblePos( event )
         bubble.classList.add( 'large' )
         timer = setTimeout( () => {
           if ( !window.getSelection().toString().length ) {
@@ -162,8 +185,7 @@ document.onreadystatechange = () => {
       }
 
       if ( !toolsMode ) {
-        bubble.style.top = event.pageY + 'px'
-        bubble.style.left = event.pageX + 'px'
+        updateBubblePos( event )
       }
 
       if ( window.getSelection().toString().length > 0 ) {
