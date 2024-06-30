@@ -108,7 +108,9 @@ document.onreadystatechange = () => {
     }
 
     document.ontouchstart = ( event ) => {
-      if ( event.changedTouches.length > 1 ) {
+      if ( event.touches.length > 1 ) {
+        disableTools()
+        cancelTimer()
         return
       }
 
@@ -120,9 +122,11 @@ document.onreadystatechange = () => {
         updateBubblePos( event )
         bubble.classList.add( 'large' )
         timer = setTimeout( () => {
-          if ( window.getSelection().toString().length == 0 ) {
+          if ( document.getSelection().toString().length == 0 ) {
             enableTools()
             startStroke()
+          } else {
+            cancelTimer()
           }
           timer = null
         }, 1000 )
@@ -130,7 +134,8 @@ document.onreadystatechange = () => {
     }
 
     const handleTouchMove = ( event ) => {
-      if ( event.changedTouches.length > 1 ) {
+      if ( event.touches.length > 1 ) {
+        disableTools()
         cancelTimer()
         return
       }
@@ -145,7 +150,7 @@ document.onreadystatechange = () => {
         updateBubblePos( event )
       }
 
-      if ( window.getSelection().toString().length > 0 ) {
+      if ( document.getSelection().toString().length > 0 ) {
         cancelTimer()
       }
     }
@@ -169,9 +174,11 @@ document.onreadystatechange = () => {
         updateBubblePos( event )
         bubble.classList.add( 'large' )
         timer = setTimeout( () => {
-          if ( !window.getSelection().toString().length ) {
+          if ( !document.getSelection().toString().length ) {
             enableTools()
             startStroke()
+          } else {
+            cancelTimer()
           }
           timer = null
         }, 1000 )
@@ -188,7 +195,7 @@ document.onreadystatechange = () => {
         updateBubblePos( event )
       }
 
-      if ( window.getSelection().toString().length > 0 ) {
+      if ( document.getSelection().toString().length > 0 ) {
         cancelTimer()
       }
     }
@@ -248,6 +255,7 @@ document.onreadystatechange = () => {
         timer = null
       }
       bubble.classList.remove( 'large' )
+      main.classList.remove( 'inactive' )
     }
 
     const draw = () => {
