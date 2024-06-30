@@ -49,19 +49,39 @@ document.onreadystatechange = () => {
 
     setCanvasSize()
 
-    drawBtn.onclick = () => {
+    const switchToDraw = () => {
       drawmode = true
       drawBtn.classList.add( 'active' )
       eraseBtn.classList.remove( 'active' )
     }
 
-    eraseBtn.onclick = () => {
+    const switchToEraser = () => {
       drawmode = false
       drawBtn.classList.remove( 'active' )
       eraseBtn.classList.add( 'active' )
     }
 
+    drawBtn.onclick = () => {
+      switchToDraw()
+    }
+
+    drawBtn.ontouchstart = () => {
+      switchToDraw()
+    }
+
+    eraseBtn.onclick = () => {
+      switchToEraser()
+    }
+
+    eraseBtn.ontouchstart = () => {
+      switchToEraser()
+    }
+
     endBtn.onclick = () => {
+      disableTools()
+    }
+
+    endBtn.ontouchstart = () => {
       disableTools()
     }
 
