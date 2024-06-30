@@ -517,8 +517,10 @@ footer * {
 #tools>div {
   color: #666;
   background-color: white;
-  padding: 0 1em;
   border-radius: 2em;
+  height: 36px;
+  width: 36px;
+  padding: 0 1em;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -533,6 +535,39 @@ footer * {
 #tools>div.active {
   color: white;
   background-color: blue;
+}
+
+#endBtn::after {
+  display: block;
+  content: "";
+  height: 19px;
+  width: 19px;
+  margin: 8px;
+  background-color: currentColor;
+  -webkit-mask: url(end.svg) no-repeat center;
+  mask: url(end.svg) no-repeat center;
+}
+
+#drawBtn::after {
+  display: block;
+  content: "";
+  height: 21px;
+  width: 21px;
+  margin: 7px;
+  background-color: currentColor;
+  -webkit-mask: url(pen.svg) no-repeat center;
+  mask: url(pen.svg) no-repeat center;
+}
+
+#eraseBtn::after {
+  display: block;
+  content: "";
+  height: 21px;
+  width: 21px;
+  margin: 7px;
+  background-color: currentColor;
+  -webkit-mask: url(eraser.svg) no-repeat center;
+  mask: url(eraser.svg) no-repeat center;
 }
 
 .bubble {
