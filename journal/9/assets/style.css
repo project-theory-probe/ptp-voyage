@@ -90,6 +90,7 @@ header {
   margin: 3em 3em 1.5em 3em;
   padding: 0 0 3em 0;
   text-align: center;
+  -webkit-user-select: none;
 }
 
 header::after {
@@ -436,6 +437,7 @@ footer {
   text-align: center;
   color: #666;
   grid-column: 1 / -1;
+  -webkit-user-select: none;
 }
 
 footer::before {
@@ -543,14 +545,15 @@ footer * {
   display: flex;
   position: fixed;
   bottom: -4em;
-  right: 3em;
+  left: 50%;
   gap: 1em;
   background-color: white;
   padding: 1em;
   border-radius: 10em;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 4px 10px;
   transition: 300ms;
   z-index: 2;
+  transform: translateX(-50%);
 }
 
 #tools.active {

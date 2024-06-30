@@ -1,4 +1,5 @@
 const main = document.querySelector( 'main' )
+const html = document.querySelector( 'html' )
 const footer = document.querySelector( 'footer' )
 const canvas = document.querySelector( '#sketchpad' )
 const context = canvas.getContext( '2d' )
@@ -14,6 +15,7 @@ const canvasStoreKey = 'issue9canvas'
 const bubble = document.createElement( 'div' )
 let current = 0
 let timer
+let selectionTimer
 let drawingflag = false
 let drawmode = true
 let toolsMode = false
@@ -121,7 +123,12 @@ document.onreadystatechange = () => {
       } else {
         updateBubblePos( event )
         bubble.classList.add( 'large' )
+        selectionTimer = setTimeout( () => {
+          document.getSelection().removeAllRanges()
+          html.style.webkitUserSelect = 'none'
+        }, 400 )
         timer = setTimeout( () => {
+          html.blur()
           if ( document.getSelection().toString().length == 0 ) {
             enableTools()
             startStroke()
@@ -254,8 +261,13 @@ document.onreadystatechange = () => {
         clearTimeout( timer )
         timer = null
       }
+      if ( selectionTimer ) {
+        clearTimeout( selectionTimer )
+        selectionTimer = null
+      }
       bubble.classList.remove( 'large' )
       main.classList.remove( 'inactive' )
+      html.style.webkitUserSelect = 'auto'
     }
 
     const draw = () => {
