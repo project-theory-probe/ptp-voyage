@@ -544,7 +544,7 @@ footer * {
 #tools {
   display: flex;
   position: fixed;
-  bottom: -4em;
+  bottom: -10em;
   left: 50%;
   gap: 1em;
   background-color: white;
