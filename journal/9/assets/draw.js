@@ -7,7 +7,7 @@ const tools = document.querySelector( '#tools' )
 const eraseBtn = document.querySelector( '#eraseBtn' )
 const drawBtn = document.querySelector( '#drawBtn' )
 const endBtn = document.querySelector( '#endBtn' )
-const userspace = document.querySelector( '#userspace' )
+const startBtn = document.querySelector( '#startBtn' )
 const strokeArray = []
 const canvasStore = document.createElement( 'img' )
 const canvasStoreKey = 'issue9canvas'
@@ -85,6 +85,14 @@ document.onreadystatechange = () => {
       disableTools()
     }
 
+    startBtn.onclick = () => {
+      enableTools()
+    }
+
+    startBtn.ontouchstart = () => {
+      enableTools()
+    }
+
     document.ontouchstart = ( event ) => {
       if ( toolsMode ) {
         startStroke()
@@ -99,17 +107,6 @@ document.onreadystatechange = () => {
           }
           timer = null
         }, 1000 )
-      }
-    }
-
-    userspace.ontouchstart = ( event ) => {
-      if ( toolsMode ) {
-        startStroke()
-        strokeArray.push( [event.changedTouches[0].pageX, event.changedTouches[0].pageY] )
-        draw()
-      } else {
-        enableTools()
-        startStroke()
       }
     }
 
@@ -158,17 +155,6 @@ document.onreadystatechange = () => {
       }
     }
 
-    userspace.onmousedown = ( event ) => {
-      if ( toolsMode ) {
-        startStroke()
-        strokeArray.push( [event.pageX, event.pageY] )
-        draw()
-      } else {
-        enableTools()
-        startStroke()
-      }
-    }
-
     document.onmousemove = ( event ) => {
       if ( toolsMode && drawingflag ) {
         strokeArray.push( [event.pageX, event.pageY] )
@@ -209,6 +195,7 @@ document.onreadystatechange = () => {
       main.classList.add( 'inactive' )
       bubble.classList.add( 'inactive' )
       bubble.classList.remove( 'large' )
+      startBtn.classList.add( 'inactive' )
     }
 
     const disableTools = () => {
@@ -217,6 +204,7 @@ document.onreadystatechange = () => {
       canvas.classList.remove( 'active' )
       main.classList.remove( 'inactive' )
       bubble.classList.remove( 'inactive' )
+      startBtn.classList.remove( 'inactive' )
     }
 
     const startStroke = () => {

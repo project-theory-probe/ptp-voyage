@@ -492,8 +492,46 @@ footer * {
 .readersspace {
   text-align: center;
   padding: 2em;
-  min-height: 30em;
   background-color: white;
+}
+
+.readersspace>div:first-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+#startBtn {
+  display: inline-block;
+  color: blue;
+  font-size: 1.33em;
+  cursor: pointer;
+  padding: 0.33em 1em;
+  border-radius: 2em;
+  transition: 300ms;
+}
+
+#startBtn.inactive {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#startBtn:hover {
+  background-color: #f8f8f8;
+}
+
+#startBtn::before {
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  height: 30px;
+  width: 30px;
+  margin: 4px 12px 4% 0;
+  background-color: currentColor;
+  -webkit-mask: url(pen.svg) no-repeat center;
+  mask: url(pen.svg) no-repeat center;
 }
 
 #tools {
