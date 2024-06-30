@@ -511,6 +511,8 @@ footer * {
   padding: 0.33em 1em;
   border-radius: 2em;
   transition: 300ms;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #startBtn.inactive {
