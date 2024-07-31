@@ -11,7 +11,7 @@ const endBtn = document.querySelector( '#endBtn' )
 const startBtn = document.querySelector( '#startBtn' )
 const strokeArray = []
 const canvasStore = document.createElement( 'img' )
-const canvasStoreKey = 'issue9canvas'
+const canvasStoreKey = 'issue10canvas'
 const bubble = document.createElement( 'div' )
 let current = 0
 let timer
