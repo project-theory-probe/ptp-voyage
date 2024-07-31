@@ -197,7 +197,7 @@ p:not(:first-of-type) {
 }
 
 .micro-item {
-  grid-column: span 4;
+  grid-column: span 5;
 }
 
 .nano-item {
@@ -376,7 +376,7 @@ p:not(:first-of-type) {
   }
 
   .small-item {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 
   .micro-item {
@@ -474,6 +474,26 @@ footer * {
   margin: 1em 0 0.5em 0;
   padding: 0 0 0.5em 1.2em;
   border-left: #bbb solid 1px;
+}
+
+.indent.pink {
+  color: deeppink;
+}
+
+.indent.red {
+  color: brown;
+}
+
+.indent.blue {
+  color: darkblue;
+}
+
+.indent.green {
+  color: green;
+}
+
+.indent span {
+  font-weight: bold;
 }
 
 .indent h4 {
