@@ -232,9 +232,27 @@ p:not(:first-of-type) {
   column-gap: 0.8em;
 }
 
+.multicolumn-huge {
+  column-width: 30em;
+  column-gap: 0.8em;
+}
+
 .multicolumn-four {
   column-count: 4;
   column-gap: 0.8em;
+}
+
+.multicolumn-asymmetry {
+  display: flex;
+  justify-content: space-between;
+}
+
+.multicolumn-asymmetry div:first-of-type {
+  width: calc((100% - 1em) /3 *2);
+}
+
+.multicolumn-asymmetry div:nth-of-type(2) {
+  width: calc((100% - 1em) /3);
 }
 
 .author {
