@@ -1,0 +1,5 @@
+[dev]
+  framework = "#static"
+
+[build]
+  publish = "./public"
