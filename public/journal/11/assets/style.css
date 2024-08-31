@@ -537,7 +537,7 @@ footer * {
 }
 
 .adframe.asymmetry>:first-child {
-  width: 16em;
+  width: 40%;
 }
 
 @media screen and (max-width: 768px) {
