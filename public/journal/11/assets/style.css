@@ -247,6 +247,11 @@ p:not(:first-of-type) {
   justify-content: space-between;
 }
 
+.multicolumn-spacy {
+  column-width: 15em;
+  column-gap: 1.66em;
+}
+
 .multicolumn-asymmetry div:first-of-type {
   width: calc((100% - 1em) /3 *2);
 }
@@ -524,8 +529,34 @@ footer * {
 .adframe {
   border: 2px black solid;
   padding: 1em;
-  column-width: 15em;
-  column-gap: 1.66em;
+}
+
+.adframe.asymmetry {
+  display: flex;
+  gap: 1.66em;
+}
+
+.adframe.asymmetry>:first-child {
+  width: 16em;
+}
+
+@media screen and (max-width: 768px) {
+  .adframe.asymmetry {
+    flex-direction: column;
+  }
+
+  .adframe.asymmetry>:first-child {
+    width: auto;
+  }
+}
+
+
+.adframe.asymmetry h3 {
+  margin-bottom: 0.8em;
+}
+
+.adframe.asymmetry img:last-of-type {
+  margin-top: 0.8em;
 }
 
 .adframe li {
