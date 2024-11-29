@@ -718,3 +718,10 @@ footer * {
   height: 200px;
   opacity: 0;
 }
+
+.kotsu {
+  width: fit-content;
+  margin: 3em auto;
+  font-size: 1.33em;
+  font-weight: bold;
+}
