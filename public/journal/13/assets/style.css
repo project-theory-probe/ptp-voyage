@@ -181,7 +181,7 @@ p:not(:first-of-type) {
 }
 
 .half-item {
-  grid-column: span 7;
+  grid-column: span 6;
 }
 
 .half-small-item {
