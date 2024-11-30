@@ -172,6 +172,10 @@ p:not(:first-of-type) {
   grid-column: span 9;
 }
 
+.large-small-item {
+  grid-column: span 9;
+}
+
 .middle-item {
   grid-column: span 8;
 }
@@ -185,7 +189,7 @@ p:not(:first-of-type) {
 }
 
 .half-small-item {
-  grid-column: span 5;
+  grid-column: span 6;
 }
 
 .half-small-item.tower-item {
@@ -294,8 +298,12 @@ p:not(:first-of-type) {
     grid-column: span 6;
   }
 
+  .large-small-item {
+    grid-column: span 3;
+  }
+
   .middle-item {
-    grid-column: span 4;
+    grid-column: span 6;
   }
 
   .mini-item {
@@ -307,8 +315,7 @@ p:not(:first-of-type) {
   }
 
   .half-small-item {
-    grid-column: span 4;
-    grid-row: span 3;
+    grid-column: span 3;
   }
 
   .small-item {
@@ -316,7 +323,7 @@ p:not(:first-of-type) {
   }
 
   .micro-item {
-    grid-column: span 3;
+    grid-column: span 6;
   }
 
   .nano-item {
@@ -360,6 +367,10 @@ p:not(:first-of-type) {
     grid-column: span 2;
   }
 
+  .large-small-item {
+    grid-column: span 1;
+  }
+
   .middle-item {
     grid-column: span 2;
   }
@@ -389,7 +400,7 @@ p:not(:first-of-type) {
   }
 
   .micro-item {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 
   .nano-item {
@@ -540,7 +551,7 @@ footer * {
   gap: 1.66em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .adframe.asymmetry {
     flex-direction: column;
   }
@@ -715,4 +726,9 @@ footer * {
   margin: 3em auto;
   font-size: 1.33em;
   font-weight: bold;
+}
+
+li img {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
