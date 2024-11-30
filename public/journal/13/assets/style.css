@@ -197,7 +197,7 @@ p:not(:first-of-type) {
 }
 
 .micro-item {
-  grid-column: span 5;
+  grid-column: span 4;
 }
 
 .nano-item {
