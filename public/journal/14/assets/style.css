@@ -205,7 +205,7 @@ p:not(:first-of-type) {
 }
 
 .nano-item {
-  grid-column: span 3;
+  grid-column: span 5;
 }
 
 .scraper-item {
@@ -311,7 +311,7 @@ p:not(:first-of-type) {
   }
 
   .half-item {
-    grid-column: span 6;
+    grid-column: span 3;
   }
 
   .half-small-item {
@@ -319,7 +319,7 @@ p:not(:first-of-type) {
   }
 
   .small-item {
-    grid-column: span 6;
+    grid-column: span 3;
   }
 
   .micro-item {
@@ -376,7 +376,7 @@ p:not(:first-of-type) {
   }
 
   .mini-item {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 
   .half-item {
