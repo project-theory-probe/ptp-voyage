@@ -737,3 +737,26 @@ li img {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+
+table {
+  display: inline-block;
+  margin-top: 1.33em;
+  border-collapse: collapse;
+}
+
+table caption,
+tr,
+td {
+  border: 1px solid #bbb;
+  line-height: 1.1em;
+}
+
+table caption {
+  border-bottom: none;
+}
+
+table caption,
+tr,
+td {
+  padding: 0.66em;
+}
