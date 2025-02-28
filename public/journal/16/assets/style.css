@@ -561,6 +561,10 @@ footer * {
   gap: 1.66em;
 }
 
+.adframe.asymmetry>:first-child {
+  width: calc((100% - 0.84em)/2);
+}
+
 @media screen and (max-width: 1024px) {
   .adframe.asymmetry {
     flex-direction: column;
