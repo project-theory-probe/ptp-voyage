@@ -236,6 +236,11 @@ p:not(:first-of-type) {
   column-gap: 0.8em;
 }
 
+.multicolumn-super-large {
+  column-width: 30em;
+  column-gap: 0.8em;
+}
+
 :lang(en) article.multicolumn-large {
   column-gap: 1.66em;
 }
@@ -759,4 +764,12 @@ table caption,
 tr,
 td {
   padding: 0.66em;
+}
+
+hr {
+  border: none;
+  background-color: #bbb;
+  height: 1px;
+  width: 3em;
+  margin: 1.33em auto;
 }
