@@ -201,7 +201,7 @@ p:not(:first-of-type) {
 }
 
 .micro-item {
-  grid-column: span 4;
+  grid-column: span 5;
 }
 
 .nano-item {
@@ -333,7 +333,7 @@ p:not(:first-of-type) {
   }
 
   .micro-item {
-    grid-column: span 6;
+    grid-column: span 3;
   }
 
   .nano-item {
@@ -410,7 +410,7 @@ p:not(:first-of-type) {
   }
 
   .micro-item {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   .nano-item {
