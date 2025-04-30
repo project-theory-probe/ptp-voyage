@@ -181,7 +181,7 @@ p:not(:first-of-type) {
 }
 
 .mini-item {
-  grid-column: span 7;
+  grid-column: span 8;
 }
 
 .half-item {
@@ -197,11 +197,11 @@ p:not(:first-of-type) {
 }
 
 .small-item {
-  grid-column: span 5;
+  grid-column: span 4;
 }
 
 .micro-item {
-  grid-column: span 5;
+  grid-column: span 4;
 }
 
 .nano-item {
