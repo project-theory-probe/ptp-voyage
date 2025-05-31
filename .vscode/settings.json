@@ -28,4 +28,5 @@
   "json.format.enable": true,
   "json.schemaDownload.enable": true,
   "html.format.unformatted": "script",
+  "html.format.wrapLineLength": 0,
 }
