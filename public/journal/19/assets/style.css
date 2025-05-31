@@ -359,7 +359,6 @@ p:not(:first-of-type) {
 
   .column-right {
     grid-column: 1 / 4;
-    grid-row: span 3;
   }
 }
 
@@ -386,7 +385,7 @@ p:not(:first-of-type) {
   }
 
   .mini-item {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   .half-item {
