@@ -140,6 +140,12 @@ article {
   margin: 1.6em 0;
 }
 
+article h2,
+article h3,
+article h4 {
+  padding: 1.33em 0 0.66em 0;
+}
+
 p:not(:first-of-type) {
   margin: 1em 0 0 0;
 }
