@@ -151,6 +151,10 @@ p:not(:first-of-type) {
   margin: 1em 0 0 0;
 }
 
+p:has(b) {
+  break-after: avoid;
+}
+
 .row-top {
   grid-row: 1;
 }
