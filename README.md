@@ -4,8 +4,6 @@ PTP's Website.
 
 ## Installation
 
-Depends on Netlify.
-
 Clone repository.
 
 ```
@@ -13,28 +11,24 @@ Clone repository.
   $ cd ptp-voyage
 ```
 
-Install Netlify CLI.
-
-```
-  $ npm install netlify-cli
-```
-
-Link your local environment to Netlify.
-
-```
-  $ nelify link
-```
-
 ## Workflow
 
-Launch a Netlify build process and a local server.
+Host `public` directory to preview.
+
+Provide some way to set up a local http server.
+
+ex. Node.js and http-server
 
 ```
-  $ netlify dev
+  $ npm i http-server
+```
+
+Launch a local server.
+
+```
+  $ http-server public
 ```
 
 ## Deployment
 
-The main and devel branch are hosted by Netlify.
-
-A Pull Request and reviewing by CODEOWNERS are requested to push codes to these branches.
+The main branch is hosted by GitHub Pages. Pushing code to main to trigger deploying action (defined in `.github/workflows/static.yaml`).
