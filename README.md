@@ -26,7 +26,7 @@ ex. Node.js and http-server
 Launch a local server.
 
 ```
-  $ http-server public
+  $ npx http-server public
 ```
 
 ## Deployment
