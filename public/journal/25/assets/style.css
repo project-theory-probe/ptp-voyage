@@ -810,8 +810,8 @@ ol li:last-child{
   --dlg-muted: #555;
   --dlg-border: #ddd;
   --dlg-bg: #f3f4f8;
-  --dlg-speaker-user: #0b5;
-  --dlg-speaker-ai: #06c;
+  --dlg-speaker-user: #444;
+  --dlg-speaker-ai: #444;
   --dlg-hl-yellow: #fff3a6;
   --dlg-hl-gray: #e9e9ee;
   --dlg-radius: 14px;
@@ -839,7 +839,7 @@ mark.hl-yellow{
   margin: 26px 0;
 }
 
-.dialogue-title{ margin: 0; font-size: 1.05rem; }
+.dialogue-title{ margin: 0; font-size: 1.2rem; }
 .dialogue-meta{ color: var(--dlg-muted); font-size: 0.92rem; margin-top: 6px; }
 
 /* ===== Single-card <details> (smooth expand) ===== */
@@ -882,11 +882,6 @@ details.dialogue-player .preview-line{
 }
 details.dialogue-player .preview-line:last-child{ margin-bottom:0; }
 
-/* Speaker styles ONLY for preview (avoid clashing with .speaker grid styles) */
-.preview-speaker{ font-weight:700; }
-.preview-speaker.user{ color:#0b5; }
-.preview-speaker.ai{ color:#06c; }
-
 /* Optional: fade-out like paywall (works if preview overflows) */
 details.dialogue-player:not([open]) .dialogue-preview{
   max-height:5.2em; /* ~3 lines */
@@ -905,10 +900,11 @@ details.dialogue-player:not([open]) .dialogue-preview::after{
 /* Turns */
 .turn{
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 80px 1fr;
   gap: 14px;
   padding: 10px 0;
   border-bottom: 1px dashed #e6e6e6;
+  align-items: baseline;
 }
 .turn:last-child{ border-bottom: none; }
 
