@@ -46,6 +46,8 @@ h3 {
 
 h4 {
   font-size: 1.1em;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 p {
@@ -845,7 +847,7 @@ mark.hl-yellow{
 /* ===== Single-card <details> (smooth expand) ===== */
 /* Make details itself the single white card */
 details.dialogue-player{
-  background:#fff;
+  background:#f8f8f8;
   border:1px solid #ddd;
   border-radius:14px;
   padding:14px 16px;
@@ -856,6 +858,7 @@ details.dialogue-player > summary{
   list-style:none;
   cursor:pointer;
 }
+
 details.dialogue-player > summary::-webkit-details-marker{ display:none; }
 
 /* Header row */
@@ -896,15 +899,24 @@ details.dialogue-player:not([open]) .dialogue-preview::after{
   background:linear-gradient(to bottom, rgba(255,255,255,0), #fff);
 }
 
+/* dialogue-content を“カード内スクロール領域”にする */
+details.dialogue-player[open] .dialogue-content{
+  max-height: calc(100vh - 180px); /* ←調整ポイント */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 /* Turns */
 .turn{
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 80px minmax(0,1fr);
   gap: 14px;
   padding: 10px 0;
   border-bottom: 1px dashed #e6e6e6;
   align-items: baseline;
+  margin-bottom:14px;
 }
 .turn:last-child{ border-bottom: none; }
 
@@ -916,7 +928,7 @@ details.dialogue-player:not([open]) .dialogue-preview::after{
 .speaker.user{ color: var(--dlg-speaker-user); }
 .speaker.ai{ color: var(--dlg-speaker-ai); }
 
-.utterance{ margin: 0; }
+.utterance{ margin: 0; min-width: 0;}
 .utterance p{ margin: 0 0 10px; }
 .utterance p:last-child{ margin-bottom: 0; }
 
@@ -936,6 +948,7 @@ details.dialogue-player:not([open]) .dialogue-preview::after{
   margin: 10px 0;
   overflow-x: auto;
   white-space: pre-wrap;
+  max-width: 100%;
 }
 
 .right-note{
