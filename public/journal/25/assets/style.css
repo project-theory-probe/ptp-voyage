@@ -790,19 +790,31 @@ hr {
   margin: 1.33em auto;
 }
 
-ol li{
-  margin-bottom: 0.8em;
-}
-
-
-
 ol li:last-child{
   margin-bottom: 0;
+}
+
+ol.quote-list li + li {
+  margin-top: 1.8em;
 }
 
 .quote-indent{
   display:block;
   margin-left:1.6em;
+}
+
+.concept{
+  margin:0.2em 0;
+}
+
+.concept-title{
+  font-style:italic; 
+  font-weight:bold;
+  margin-bottom:0.2em;
+}
+
+.concept-text{
+  margin-left:2.5em;
 }
 
 /* ===================================
