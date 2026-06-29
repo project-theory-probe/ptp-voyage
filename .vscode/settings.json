@@ -29,4 +29,5 @@
   "json.schemaDownload.enable": true,
   "html.format.unformatted": "script",
   "html.format.wrapLineLength": 0,
+  "liveServer.settings.port": 5501,
 }
